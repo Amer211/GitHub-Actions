@@ -37,10 +37,10 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        image: github-actions-app
+
         context: .
         push: true
         file: ./Dockerfile
-        tags:
+        tags: |
           ${{ secrets.DOCKER_HUB_USERNAME }}/github-actions-app:latest
           ${{ secrets.DOCKER_HUB_USERNAME }}/github-actions-app:${{ github.sha }}
