@@ -35,10 +35,13 @@ jobs:
 
     # 2. build and push Docker image
     - name: Build and push Docker image
-      id: docker_build
-      uses: docker/build-push-action@v4
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        context: .
+        image: amer211/github-actions-app
+        registry: docker.io
+        dockerfile: ./Dockerfile
         push: true
-        tags: amer211/github-actions-app:latest
-        cache-from: type=registry,ref=amer211/github-actions-app:latest
+
+        tags: |
+          ${{ secrets.DOCKER_HUB_USERNAME }}/github-actions-app:latest
+          ${{ secrets.DOCKER_HUB_USERNAME }}/github-actions-app:${{ github.sha }}
