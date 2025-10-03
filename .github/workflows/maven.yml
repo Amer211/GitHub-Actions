@@ -30,7 +30,7 @@ jobs:
     - name: build and push Docker Hub
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
-        image: amer211/github-actions-app
+        image: amer211/github-action-app
         tags: latest
         registry: docker.io
         dockerfile: Dockerfile
