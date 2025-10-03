@@ -1,0 +1,7 @@
+FROM openjdk:17-jdk-slim
+
+ADD target/GitHub-Actions-0.0.1-SNAPSHOT.jar myapp.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","/myapp.jar"]
